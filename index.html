@@ -1,49 +1,92 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Product Page</title>
-    <!-- link to vue cdn -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/main.js"></script>
-    <!-- link to css file -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <!-- link to custom css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- link to cdn bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- link to cdn bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- link to cdn VUE JS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- google fonts cdn link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
-<!-- <body> -->
-    <!-- <div id="app">
-        <h1>{{product}}</h1>
+<body>
+  <!-- VUE Js container -->
+  <div id="app">
+    <!-- navbar section starts -->
+    <section id="navbar" class="fst-protest-riot-regular">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Abdul's Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Newsletter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- navbar section ends -->
+    <!-- hero section starts -->
+    <div class="container text-capitalize text-center">
+      <hr class="fw-bold">
+      <h3 class="display-1 anton-regular">hey! welcome to my blog.</h3>
+      <h5 class="anton-regular"> Here I document the intricacies of my life as someone who is fascinated by science and
+        passionate about
+        computer science. </h5>
+      <p class="poppins-light-italic">all entries are subject to change and strictly based off of personal opinion in
+        cases of sarcasm. 🤣</p>
+      <hr class="fw-bold">
     </div>
-    invoke the vue constructor -->
-    <script>
-        // mount the vue app to a location in DOM memory
-        // const mountedApp = app.mount("#app");
-    </script>
+    <div class="container">
+      <h6>recent blog posts</h6>
+    </div>
+    <!-- hero section ends -->
+    <!-- footer section starts -->
+    <section id="footer">
+
+    </section>
+    <!-- footer section ends -->
+  </div>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: "Hello World!"
+        }
+      }
+    })
+
+    app.mount('#app');
+  </script>
 </body>
 
+
 </html>
-=======
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Vue.js</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
-  </head>
-
-  <body>
-    <div id="app">{{message}}</div>
-
-    <script>
-      var app = new Vue({
-        el: "#app",
-        data: { message: "Hello world!" },
-      });
-    </script>
-  </body>
-</html>
->>>>>>> c71e1dfcac2ba9bae09359c10249b6c1c5c20805
