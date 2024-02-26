@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <form action="{% url 'loginView' %}" method="post">
-      <!-- {% csrf_token %} -->
+      {% csrf_token %}
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">user Name</label>
         <input type="text" name="userName" class="form-control" id="" aria-describedby="emailHelp">
