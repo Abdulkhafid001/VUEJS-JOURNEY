@@ -19,4 +19,4 @@ def login(request):
     template = loader.get_template('login.html')
     context = {'users': mydata}
     # print(user_name, pass_word)
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(), context)
