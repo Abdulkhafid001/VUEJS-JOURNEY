@@ -2,5 +2,5 @@
 from django.urls import path
 from MYBLOG import views
 urlpatterns = [
-    path('', views.login, name='loginView'),
+    path('', views.django_auth, name='loginView'),
 ]
