@@ -8,6 +8,6 @@ class UserDetails(models.Model):
     pass_word = models.CharField(max_length=100, null=False)
 
 
-# using  the DJnago docs to build an authentication system
-# use the create user method to create a user object
-user = User('codeX', 'Abdul123', 'kabiruabdulkhafid@gmail.com')
+# chnage password request model
+class password_change_request(models.Model):
+    pass
