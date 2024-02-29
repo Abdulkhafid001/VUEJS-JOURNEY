@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Todo App Version</title>
+    <!-- link to vue CDN -->
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Todo List Vue Js Version</h1>
+        <form>
+            <input v-model="newTask">
+            <input type="button" value="add" v-on:click="addItem">
+        </form>
+        <ul id="taskList">
+
+        </ul>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                newTask: ''
+            },
+
+            methods: {
+                addItem: () => {
+                    let newItem = document.createElement('li');
+                    newItem.innerText = app.newTask;
+                    document.getElementById('taskList').appendChild(newItem);
+                    app.newTask = '';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

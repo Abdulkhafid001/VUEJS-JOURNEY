@@ -11,6 +11,23 @@
     <h3 class="text-center">you are now logged in to the application!</h3>
     <!-- <button>log out</button> -->
     <a href="{% url 'logout' %}">logout</a>
+    <div class="container">
+        <table>
+            <tr>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                {% for user in myUsers %}
+            <tr>
+                <td> {{user.username}}</td>
+                <td> {{user.password}}</td>
+                <td> {{user.email}}</td>
+            </tr>
+            {% endfor%}
+        </table>
+    </div>
 </body>
 
 </html>

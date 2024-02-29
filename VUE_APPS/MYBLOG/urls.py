@@ -4,8 +4,14 @@ from MYBLOG import views
 # using the Django auth views function
 from django.contrib.auth import views as auth_views
 urlpatterns = [
-    path('', views.django_auth, name='signupview'),
-    path('login', views.django_login, name='loginview'),
+    # sign up urlpath
+    path('', views.sign_up, name='signupview'),
+    # login url path
+    path('login/', views.login, name='loginview'),
+    # homepage url path
     path('home/', views.home, name='homepage'),
-    path('logout/', views.home, name='logout'),
+    # logout url path
+    path('logout/', views.logout_user, name='logout'),
+    # change password url
+    path('changepassword/', views.change_password, name='changepassword')
 ]

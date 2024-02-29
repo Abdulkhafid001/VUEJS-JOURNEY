@@ -36,24 +36,6 @@
       <a href="{% url 'loginview' %}">click here to login</a>
     </div>
   </div>
-  <div class="container">
-    <h1>users in the logged in the app</h1>
-    <table>
-      <tr>
-        <th>UserName</th>
-        <th>Password</th>
-        <th>Email</th>
-      </tr>
-      <tr>
-        {% for user in myUsers %}
-      <tr>
-        <td> {{user.username}}</td>
-        <td> {{user.password}}</td>
-        <td> {{user.email}}</td>
-      </tr>
-      {% endfor%}
-    </table>
-  </div>
 </body>
 
 </html>
