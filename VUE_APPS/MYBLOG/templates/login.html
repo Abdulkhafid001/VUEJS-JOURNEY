@@ -8,17 +8,20 @@
 </head>
 
 <body>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">username or email</label>
-        <input type="text" name="userName" class="form-control" id="" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">password</label>
-        <input type="password" name="passWord" class="form-control" id="">
-    </div>
-    <div class="">
-        <button>login</button>
-    </div>
+    <form action="{% url 'loginview' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">username or email</label>
+            <input type="text" name="userName" class="form-control" id="" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">password</label>
+            <input type="password" name="passWord" class="form-control" id="">
+        </div>
+        <div class="">
+            <button>login</button>
+        </div>
+    </form>
 </body>
 
 </html>
