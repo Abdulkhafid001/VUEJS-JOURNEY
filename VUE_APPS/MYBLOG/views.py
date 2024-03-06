@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login as django_login, logout
 # Create your views here.
 from MYBLOG.models import UserDetails
 from django.contrib.auth.decorators import login_required
+import secrets
 
 
 # using the django built in authentication system
@@ -24,6 +25,7 @@ def sign_up(request):
     return render(request, "signup.html")
 
 # Django log in using GET http method
+
 
 @login_required
 def home(request):
@@ -62,4 +64,9 @@ def login(request):
 
 
 def change_password(request):
+    if request.method == 'post':
+        user_mail = request.POST['userMail']
+        # check if mail is DB
+
+
     return render(request, 'forgotpassword.html')
