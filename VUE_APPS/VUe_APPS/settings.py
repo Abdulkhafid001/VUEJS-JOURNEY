@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGIN_URL = '/login'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -25,7 +27,10 @@ SECRET_KEY = 'django-insecure-!1-s)_9!x(gv47d(lv+8^10dt^&s9%%-t7a-eir+f*h567#v)(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '10.33.119.13',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -131,4 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     # internal IP for django-debug-toolbar
     "127.0.0.1",
+
 ]
