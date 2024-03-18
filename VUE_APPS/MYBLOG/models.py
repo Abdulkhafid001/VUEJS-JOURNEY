@@ -10,4 +10,5 @@ class UserDetails(models.Model):
 
 # chnage password request model
 class password_change_request(models.Model):
-    pass
+    user_random_key = models.CharField(max_length=50, null=False)
+    mail_of_user = models.CharField(max_length=50, null=False)

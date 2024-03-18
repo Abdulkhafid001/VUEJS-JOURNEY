@@ -13,5 +13,7 @@ urlpatterns = [
     # logout url path
     path('logout/', views.logout_user, name='logout'),
     # change password url
-    path('changepassword/', views.change_password, name='changepassword')
+    path('changepassword/', views.change_password, name='changepassword'),
+    # test url link
+    path('changepassword/<str:key>', views.check_secret_key, name='checkkey')
 ]

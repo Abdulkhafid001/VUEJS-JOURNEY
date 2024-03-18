@@ -3,9 +3,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout
 # Create your views here.
-from MYBLOG.models import UserDetails
+from MYBLOG.models import password_change_request
 from django.contrib.auth.decorators import login_required
-import secrets
+from django.core.mail import EmailMessage
+from MYBLOG.mycode import AppUtilities
 
 
 # using the django built in authentication system
@@ -13,15 +14,15 @@ import secrets
 
 def sign_up(request):
     if request.method == 'POST':
-        user_name = request.POST.get('userName')
-        user_pass_word = request.POST.get('passWord')
-        user_email = request.POST.get('userEmail')
+        user_name = request.POST['userName']
+        user_pass_word = request.POST['passWord']
+        user_email = request.POST['userEmail']
         # use the django admin User model
         new_user = User.objects.create_user(
             username=user_name, email=user_email, password=user_pass_word)
         # save user instance
         new_user.save()
-
+        redirect(home)
     return render(request, "signup.html")
 
 # Django log in using GET http method
@@ -46,8 +47,8 @@ def login(request):
     if request.method == 'POST':
         user_name = request.POST['userName']
         user_pass_word = request.POST['passWord']
-        print(user_name, user_pass_word)
-        user_email = request.GET.get('userEmail')
+        # print(user_name, user_pass_word)
+        # user_email = request.POST['userEmail']
         # check if user is authenticated and redirect to homepage
         user = authenticate(request, username=user_name,
                             password=user_pass_word)
@@ -64,9 +65,30 @@ def login(request):
 
 
 def change_password(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         user_mail = request.POST['userMail']
+        utilities = AppUtilities()
+        random_key = utilities.generate_secret_key(16)
         # check if mail is DB
-
-
+        user1 = User.objects.get(email=user_mail)
+        # save user to DB
+        password_db = password_change_request(
+            user_random_key=random_key, mail_of_user=user1.email)
+        password_db.save()
+        # send mail to user
+        email = EmailMessage(f"change password for {
+                             user1.username}", f"click this link to reset your password: http://127.0.0.1:8000/changepassword/{random_key}", to=[user1.email])
+        email.send(fail_silently=False)
+        # context1 = {'message': message}
     return render(request, 'forgotpassword.html')
+
+
+def check_secret_key(request, key):
+    # check if key in changepassword DB
+    message = 'Fake URL path!'
+    if password_change_request.DoesNotExist:
+        message = 'proceed to change password'
+        return redirect(change_password)
+    else:
+        user_in_db = password_change_request.objects.get(user_random_key=key)
+        
