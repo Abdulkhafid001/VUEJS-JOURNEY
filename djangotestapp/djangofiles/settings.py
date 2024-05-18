@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     # third-party: django debug toolbar
     "debug_toolbar",
     # register the auth app
-    'MYBLOG',
+    'myblog',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'VUe_APPS.urls'
+ROOT_URLCONF = 'djangofiles.urls'
 
 TEMPLATES = [
     {

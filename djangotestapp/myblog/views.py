@@ -3,10 +3,10 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout
 # Create your views here.
-from MYBLOG.models import password_change_request
+from myblog.models import password_change_request
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
-from MYBLOG.mycode import AppUtilities
+from myblog.mycode import AppUtilities
 
 
 # using the django built in authentication system

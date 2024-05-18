@@ -1,6 +1,6 @@
 # get views to map to url paths
 from django.urls import path
-from MYBLOG import views
+from myblog import views
 # using the Django auth views function
 from django.contrib.auth import views as auth_views
 urlpatterns = [
