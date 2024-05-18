@@ -77,7 +77,7 @@ def change_password(request):
         password_db.save()
         # send mail to user
         email = EmailMessage(f"change password for {
-                             user1.username}", f"click this link to reset your password: http://127.0.0.1:8000/changepassword/{random_key}", to=[user1.email])
+                             user1.username}", f"click this link to reset your password: http://127.0.0.1:8000/setpassword/{random_key}", to=[user1.email])
         email.send(fail_silently=False)
         # context1 = {'message': message}
     return render(request, 'forgotpassword.html')
@@ -88,7 +88,9 @@ def check_secret_key(request, key):
     message = 'Fake URL path!'
     if password_change_request.DoesNotExist:
         message = 'proceed to change password'
-        return redirect(change_password)
+        # redirect to change password page
+        # return redirect(change_password)
     else:
         user_in_db = password_change_request.objects.get(user_random_key=key)
-        
+        message = 'user in db please set a new password'
+    return render(request, 'setpassword.html', {'message': message})

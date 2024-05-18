@@ -12,3 +12,4 @@ class UserDetails(models.Model):
 class password_change_request(models.Model):
     user_random_key = models.CharField(max_length=50, null=False)
     mail_of_user = models.CharField(max_length=50, null=False)
+

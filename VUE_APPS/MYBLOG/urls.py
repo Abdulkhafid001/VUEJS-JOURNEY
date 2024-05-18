@@ -15,5 +15,5 @@ urlpatterns = [
     # change password url
     path('changepassword/', views.change_password, name='changepassword'),
     # test url link
-    path('changepassword/<str:key>', views.check_secret_key, name='checkkey')
+    path('setpassword/<str:key>', views.check_secret_key, name='checkkey')
 ]
