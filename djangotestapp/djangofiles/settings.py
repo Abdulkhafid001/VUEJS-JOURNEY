@@ -3,7 +3,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-LOGIN_URL = '/login'
+LOGIN_URL = 'two_factor:login'
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -27,15 +27,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # third-party: django debug toolbar
-    "debug_toolbar",
-    # register django-otp,
-    'django-otp',
-    # register djangoform-tools
-    'django-formtools',
-    # main app
-    'blogger'
-]
+    "debug_toolbar", # third-party: django debug toolbar
+    # 'django-formtools', # register djangoform-tools
+    'django-otp', # register django-otp,
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_email',  # <- if you want email capability.
+    'two_factor',
+    'two_factor.plugins.phonenumber',  # <- if you want phone number capability.
+    'two_factor.plugins.email',  # <- if you want email capability.
+    'two_factor.plugins.yubikey',  # <- for yubikey capability
+    'blogger', # main app
+    'otp_yubikey'
+    ]
 
 MIDDLEWARE = [
     # django-debug-toolbar middleware
@@ -45,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware', # django-otp middleware 
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
