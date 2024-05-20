@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "debug_toolbar", # third-party: django debug toolbar
-    # 'django-formtools', # register djangoform-tools
-    'django-otp', # register django-otp,
+    #'django_formtools', # register djangoform-tools
+    'django_otp', # register django-otp,
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
     'django_otp.plugins.otp_email',  # <- if you want email capability.
