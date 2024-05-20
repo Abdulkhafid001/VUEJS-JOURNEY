@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # third-party: django debug toolbar
     "debug_toolbar",
     # register the auth app
-    'myblog',
+    # 'myblog',
+    'blogger'
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'VUe_APPS.wsgi.application'
+WSGI_APPLICATION = 'djangofiles.wsgi.application'
 
 
 # Database
